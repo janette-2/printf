@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 //Counts without taking into account the '\0' char.
 size_t	ft_strlen(const char *s)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 /* Writes char c in the specified fd (file descriptor). 
 
 ** FD	Name	Description

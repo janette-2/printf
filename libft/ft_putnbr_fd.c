@@ -6,11 +6,11 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 15:08:11 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/11 18:47:43 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/12 18:02:12 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "libft.h"
 /* Writes the int n in the specified fd (file descriptor).
 To remember the system fd's:
  FD	Name	Description

@@ -6,13 +6,13 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:22:37 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/11 19:39:14 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/12 18:14:14 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft/libft.h"
-
+/* 
 int	ft_printf(char const *string, ...)
 {
 	char	type;
@@ -37,8 +37,8 @@ int	ft_printf(char const *string, ...)
 
 	if (type == '%')
 
-	return (n_written)
-}
+	return (n_written);
+} */
 
 /*
 
@@ -60,4 +60,3 @@ CONVERSIONES----------------------------------------------
 • % % para imprimir el símbolo del porcentaje
 
 */
-
