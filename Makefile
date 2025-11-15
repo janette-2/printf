@@ -6,7 +6,7 @@
 #    By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/11 18:33:28 by janrodri          #+#    #+#              #
-#    Updated: 2025/11/12 18:14:03 by janrodri         ###   ########.fr        #
+#    Updated: 2025/11/15 22:29:57 by janrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,8 @@ all: $(LIBFT) $(NAME)
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
-$(NAME): $(OBJ) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJ) 
+	ar rcs $(NAME) $(OBJ) $(LIBFT)
 
 clean:
 	$(MAKE) -C $(LIBFT_DIR) clean

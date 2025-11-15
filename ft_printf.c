@@ -6,57 +6,59 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:22:37 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/12 18:14:14 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/15 22:55:57 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft/libft.h"
-/* 
-int	ft_printf(char const *string, ...)
+
+int	ft_printf(char const *format, ...)
 {
 	char	type;
-	int		n_written;
+	va_list	args;
+	int		count;
+	int		i;
 
-	type = ft_find_percentage(string);
-	if (type == 'c')
+	va_start(args, format);
+	count = 0;
+	i = 0;
+	while(format[i] != '\0')
+	{
+		if (format[i] == '%')
+		{
+		type = format[i + 1]; //ft_find_percentage(format);
+		ft_format(type, args, &count);
+		i++;
+		//format = ft_memchr(format, '%' , ft_strlen(format)) + 1 ; //Avanza para buscar desde el siguiente char del % encontrado hasta llegar al final 	
+		}
+		else
+			count += write(1, &format[i], 1);
+		i++;
+	}
+	va_end(args);
+	return (count);
+}
+// FALTA ABORDAR EL CASO DE CUANDO TE DA -1 LOS CHARS SACADOS??
+int main(void)
+{
+	char *string;
+	int  i_num;
+	int n_print;
 
-	if (type == 's')
+	i_num = 28;
+	string = "123456";
+	n_print = ft_printf("Empezamos con las pruebas:\n"); //27 chars en la string
+	ft_printf("Printed Bytes :%d\n", n_print);
+	ft_printf("string: %s\n", string);
+	ft_printf("pointer: %p\n", string);
+	ft_printf("hex: %x\n", string);
+	ft_printf("HEX: %X\n", string);
+	ft_printf("char: %c\n", 'j');
+	ft_printf("int: %i\n", i_num);
+	ft_printf("dig: %d\n", i_num);
+	ft_printf("unsigned: %u\n", -1);
+	ft_printf("percentage: %%\n");
+	return (0);
+}
 
-	if (type == 'p')
-
-	if (type == 'd')
-
-	if (type == 'i')
-
-	if (type == 'u')
-
-	if (type == 'x')
-
-	if (type == 'X')
-
-	if (type == '%')
-
-	return (n_written);
-} */
-
-/*
-
-PARA LA LIBRERIA:
-
-El Makefile de tu proyecto debe compilar primero la librería utilizando su Makefile, y después
-compilar el proyecto
-
-CONVERSIONES----------------------------------------------
-
-• %c Imprime un solo carácter.
-• %s Imprime una string (como se define por defecto en C).
-• %p El puntero void * dado como argumento se imprime en formato hexadecimal.
-• %d Imprime un número decimal (base 10).
-• %i Imprime un entero en base 10.
-• %u Imprime un número decimal (base 10) sin signo.
-• %x Imprime un número hexadecimal (base 16) en minúsculas.
-• %X Imprime un número hexadecimal (base 16) en mayúsculas.
-• % % para imprimir el símbolo del porcentaje
-
-*/
