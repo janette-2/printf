@@ -6,40 +6,51 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:22:37 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/15 22:55:57 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/16 21:15:38 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft/libft.h"
 
-int	ft_printf(char const *format, ...)
+static int write_and_count(char const *format, va_list args, int *count)
 {
 	char	type;
-	va_list	args;
-	int		count;
+	int		written_bytes;
 	int		i;
-
-	va_start(args, format);
-	count = 0;
+	
 	i = 0;
 	while(format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
-		type = format[i + 1]; //ft_find_percentage(format);
-		ft_format(type, args, &count);
-		i++;
-		//format = ft_memchr(format, '%' , ft_strlen(format)) + 1 ; //Avanza para buscar desde el siguiente char del % encontrado hasta llegar al final 	
+		type = format[i + 1];
+		ft_format(type, args, count);
+		i = i + 2;
 		}
 		else
-			count += write(1, &format[i], 1);
-		i++;
+		{
+			written_bytes = write(1, &format[i], 1);
+			ft_check_bytes_count(count, written_bytes);
+			i++;
+		}
 	}
+	return (*count);
+}
+
+int	ft_printf(char const *format, ...)
+{
+	va_list	args;
+	int		count;
+
+	va_start(args, format);
+	count = 0;
+	count = write_and_count(format, args, &count);
 	va_end(args);
 	return (count);
 }
-// FALTA ABORDAR EL CASO DE CUANDO TE DA -1 LOS CHARS SACADOS??
+
+
 int main(void)
 {
 	char *string;

@@ -3,5 +3,5 @@
 
 void	ft_putstr_fd_count(char *s, int fd, int *count)
 {
-	count += write(fd, s, ft_strlen(s));
+	ft_check_bytes_count(count, write(fd, s, ft_strlen(s)));
 }

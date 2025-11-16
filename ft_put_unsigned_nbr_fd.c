@@ -7,7 +7,7 @@ void	ft_put_unsigned_nbr_fd( unsigned int n, int fd, int *count)
 	if (n >= 10)
 		ft_put_unsigned_nbr_fd(n / 10, fd, count);
 	c = n % 10 + '0';
-	*count += write(fd, &c, 1);
+	ft_check_bytes_count(count, write(fd, &c, 1));
 }
 
 /* int main(void)

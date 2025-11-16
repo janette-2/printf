@@ -48,12 +48,15 @@ void ft_put_hex_nbr_fd( unsigned int n, int fd, int *count)
 	unsigned int    digits;
 	char			*hex_digits;
 	char			*remains;
+	int				written_bytes;
 
 	hex_digits = "0123456789abcdef";
 	digits = count_digits(n);
-	remains = conversion_remains(digits, n, hex_digits); 
-	*count += write(fd, "0x", 2);
-	*count += write(fd, remains, ft_strlen(remains));
+	remains = conversion_remains(digits, n, hex_digits);
+	written_bytes = write(fd, "0x", 2);
+	ft_check_bytes_count(count, written_bytes);
+	written_bytes = write(fd, remains, ft_strlen(remains));
+	ft_check_bytes_count(count, written_bytes);
 	free(remains);
 }
  

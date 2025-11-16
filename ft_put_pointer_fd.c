@@ -54,8 +54,8 @@ void ft_put_pointer_fd(void *pointer, int fd, int *count)
 	hex_digits = "0123456789abcdef";
 	digits = count_digits(n_pointer);
 	remains = conversion_remains(digits, n_pointer, hex_digits); 
-	*count += write(fd, "0x", 2);
-	*count += write(fd, remains, ft_strlen(remains));
+	ft_check_bytes_count(count, write(fd, "0x", 2));
+	ft_check_bytes_count(count, write(fd, remains, ft_strlen(remains)));
 	free(remains);
 }
  

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:13:51 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/15 22:34:30 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/16 21:17:10 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 # define LIBFTPRINTF_H
 
 # include <stdlib.h>
-#  include <unistd.h>
-#   include <stdarg.h>
+# include <unistd.h>
+# include <stdarg.h>
  
-//int		ft_printf(char const *string, ...);
+//int	ft_printf(char const *format, ...)
 int		ft_find_percentage(char const *string);
 void	ft_putchar_fd_count(char c, int fd, int *count);
 void	ft_putstr_fd_count(char *s, int fd, int *count);
@@ -28,6 +28,7 @@ void	ft_put_HEX_nbr_fd(unsigned int n, int fd, int *count);
 void	ft_put_percentage_fd (int fd, int *count);
 void	ft_put_pointer_fd(void *pointer, int fd, int *count);
 void	ft_format(char type, va_list args, int *count);
+void	ft_check_bytes_count(int *count, int written_bytes);
 
 #endif
 
