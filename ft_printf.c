@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:22:37 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/17 18:41:43 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/17 19:26:07 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_printf(char const *format, ...)
 	return (count);
 }
 
-/* #include <stdio.h>
+#include <stdio.h>
 int main(void)
 {
 	char *string;
@@ -60,12 +60,12 @@ int main(void)
 
 	i_num = 28;
 	string = "123456";
-	n_print = ft_printf("--TESTS--:\n"); //27 chars en la string
+	n_print = ft_printf("--TESTS--:\n");
 	ft_printf("Printed Bytes :%d\n", n_print);
 	ft_printf("string: %s\n", string);
 	ft_printf("pointer: %p\n", string);
-	ft_printf("hex: %x\n", &string);
-	ft_printf("HEX: %X\n", &string);
+	ft_printf("hex: %x\n", 15);
+	ft_printf("HEX: %X\n", 15);
 	ft_printf("char: %c\n", 'j');
 	ft_printf("int: %i\n", i_num);
 	ft_printf("dig: %d\n", i_num);
@@ -73,20 +73,19 @@ int main(void)
 	ft_printf("percentage: %%\n");
 
 
-	ft_printf("\n COMPARISON WITH ORIGINAL: \n");
+	ft_printf("\nCOMPARISON WITH ORIGINAL: \n\n");
 
 	n_print1 = printf("--TESTS--:\n");
 	printf("Printed Bytes :%d\n", n_print1);
 	printf("string: %s\n", string);
 	printf("pointer: %p\n", string);
-	printf("hex: %x\n", string);
-	printf("HEX: %X\n", string);
+	printf("hex: %x\n", 15);
+	printf("HEX: %X\n", 15);
 	printf("char: %c\n", 'j');
 	printf("int: %i\n", i_num);
 	printf("dig: %d\n", i_num);
 	printf("unsigned: %u\n", -1);
 	printf("percentage: %%\n");
 
-
 	return (0);
-} */
+}
