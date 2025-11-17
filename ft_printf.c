@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:22:37 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/17 19:26:07 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/17 20:07:04 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	ft_printf(char const *format, ...)
 	return (count);
 }
 
-#include <stdio.h>
+/* #include <stdio.h>
+#include <limits.h>
 int main(void)
 {
 	char *string;
@@ -72,7 +73,6 @@ int main(void)
 	ft_printf("unsigned: %u\n", -1);
 	ft_printf("percentage: %%\n");
 
-
 	ft_printf("\nCOMPARISON WITH ORIGINAL: \n\n");
 
 	n_print1 = printf("--TESTS--:\n");
@@ -87,5 +87,29 @@ int main(void)
 	printf("unsigned: %u\n", -1);
 	printf("percentage: %%\n");
 
-	return (0);
-}
+	ft_printf("\nADDITIONAL TEST: \n\n");
+    int ret1, ret2;
+
+    // Caso básico
+    ret1 = ft_printf("Hola mundo\n");
+    ret2 = printf("Hola mundo\n");
+    printf("ft_printf:%d printf:%d\n", ret1, ret2);
+
+    // Caso límite
+    ret1 = ft_printf("%d %d\n", INT_MAX, INT_MIN);
+    ret2 = printf("%d %d\n", INT_MAX, INT_MIN);
+    printf("ft_printf:%d printf:%d\n", ret1, ret2);
+
+    // Caso puntero NULL
+    ret1 = ft_printf("%p\n", NULL);
+    ret2 = printf("%p\n", NULL);
+    printf("ft_printf:%d printf:%d\n", ret1, ret2);
+
+    // Caso error (-1)
+    close(1);
+    ret1 = ft_printf("cerrado\n");
+    ret2 = printf("cerrado\n");
+   fprintf(stderr, "ft_printf:%d printf:%d\n", ret1, ret2);
+
+    return 0;
+} */

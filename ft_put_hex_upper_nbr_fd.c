@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:24:54 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/17 18:43:26 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/17 19:50:10 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ void	ft_put_hex_upper_nbr_fd(unsigned int n, int fd, int *count)
 	hex_digits = "0123456789ABCDEF";
 	digits = count_digits(n);
 	remains = conversion_remains(digits, n, hex_digits);
-	written_bytes = write(fd, "0X", 2);
-	ft_check_bytes_count(count, written_bytes);
 	written_bytes = write(fd, remains, ft_strlen(remains));
 	ft_check_bytes_count(count, written_bytes);
 	free(remains);

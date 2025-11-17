@@ -6,17 +6,17 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:24:05 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/17 18:38:45 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/17 19:49:56 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft/libft.h"
 
-static unsigned int	count_digits(unsigned long int n)
+static unsigned int	count_digits(unsigned int n)
 {
-	unsigned long int	temp;
-	unsigned long int	digits;
+	unsigned int	temp;
+	unsigned int	digits;
 
 	digits = 0;
 	temp = n;
@@ -33,12 +33,12 @@ static unsigned int	count_digits(unsigned long int n)
 	return (digits);
 }
 
-static char	*conversion_remains(unsigned long int digits, unsigned long int n,
+static char	*conversion_remains(unsigned int digits, unsigned int n,
 		char	*hex_digits)
 {
-	unsigned long int	rest;
-	unsigned long int	temp;
-	char				*remains;
+	unsigned int	rest;
+	unsigned int	temp;
+	char			*remains;
 
 	remains = malloc(digits * sizeof(char) + 1);
 	if (!remains)
@@ -59,12 +59,12 @@ static char	*conversion_remains(unsigned long int digits, unsigned long int n,
 
 void	ft_put_pointer_fd(void *pointer, int fd, int *count)
 {
-	unsigned long int	n_pointer;
-	unsigned long int	digits;
-	char				*remains;
-	char				*hex_digits;
+	unsigned int	n_pointer;
+	unsigned int	digits;
+	char			*remains;
+	char			*hex_digits;
 
-	n_pointer = (unsigned long int) &pointer;
+	n_pointer = (unsigned long int) pointer;
 	hex_digits = "0123456789abcdef";
 	digits = count_digits(n_pointer);
 	remains = conversion_remains(digits, n_pointer, hex_digits);
