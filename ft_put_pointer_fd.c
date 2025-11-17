@@ -6,20 +6,22 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:24:05 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/17 19:49:56 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/17 23:56:06 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 #include "libft/libft.h"
 
-static unsigned int	count_digits(unsigned int n)
+static long unsigned int	count_digits(long unsigned int n)
 {
-	unsigned int	temp;
-	unsigned int	digits;
+	long unsigned int	temp;
+	long unsigned int	digits;
 
 	digits = 0;
 	temp = n;
+	/* if (!n)
+		return (digits); */
 	if (n == 0)
 		digits = 1;
 	else
@@ -33,13 +35,15 @@ static unsigned int	count_digits(unsigned int n)
 	return (digits);
 }
 
-static char	*conversion_remains(unsigned int digits, unsigned int n,
+static char	*conversion_remains(long unsigned int digits, long unsigned int n,
 		char	*hex_digits)
 {
-	unsigned int	rest;
-	unsigned int	temp;
-	char			*remains;
+	long unsigned int	rest;
+	long unsigned int	temp;
+	char				*remains;
 
+	/* if (digits == 0 || !n)
+		return (NULL); */
 	remains = malloc(digits * sizeof(char) + 1);
 	if (!remains)
 		return (NULL);
@@ -59,12 +63,17 @@ static char	*conversion_remains(unsigned int digits, unsigned int n,
 
 void	ft_put_pointer_fd(void *pointer, int fd, int *count)
 {
-	unsigned int	n_pointer;
-	unsigned int	digits;
-	char			*remains;
-	char			*hex_digits;
+	long unsigned int	n_pointer;
+	long unsigned int	digits;
+	char				*remains;
+	char				*hex_digits;
 
-	n_pointer = (unsigned long int) pointer;
+	if (!pointer)
+	{
+		write(fd, "(nil)", 5);
+		return ;
+	}
+	n_pointer = (long unsigned int) pointer;
 	hex_digits = "0123456789abcdef";
 	digits = count_digits(n_pointer);
 	remains = conversion_remains(digits, n_pointer, hex_digits);
