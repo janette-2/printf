@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 15:08:11 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/13 22:08:35 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/17 18:45:37 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	ft_putnbr_fd(int n, int fd)
 		c = n % 10 + '0';
 		write(fd, &c, 1);
 	}
-}  
+}
 /* 
 int main(void)
 {

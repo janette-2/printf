@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_put_hex_upper_nbr_fd.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/17 18:24:54 by janrodri          #+#    #+#             */
+/*   Updated: 2025/11/17 18:43:26 by janrodri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 #include "libft/libft.h"
-//AÑADIR EL HEADERR<<<<<-------------------
-static unsigned int count_digits(unsigned int n)
+
+static unsigned int	count_digits(unsigned int n)
 {
 	unsigned int	temp;
 	unsigned int	digits;
@@ -12,15 +24,17 @@ static unsigned int count_digits(unsigned int n)
 		digits = 1;
 	else
 	{
-	while (temp != 0)
-	{
-		temp = temp / 16;
-		digits++;
-	}
+		while (temp != 0)
+		{
+			temp = temp / 16;
+			digits++;
+		}
 	}
 	return (digits);
 }
-static char *conversion_remains(unsigned int digits, unsigned int n, char	*hex_digits)
+
+static char	*conversion_remains(unsigned int digits, unsigned int n,
+		char	*hex_digits)
 {
 	unsigned int	rest;
 	unsigned int	temp;
@@ -43,23 +57,22 @@ static char *conversion_remains(unsigned int digits, unsigned int n, char	*hex_d
 	return (remains);
 }
 
-void ft_put_HEX_nbr_fd(unsigned int n, int fd, int *count)
+void	ft_put_hex_upper_nbr_fd(unsigned int n, int fd, int *count)
 {
-	unsigned int    digits;
+	unsigned int	digits;
 	char			*hex_digits;
 	char			*remains;
 	int				written_bytes;
 
 	hex_digits = "0123456789ABCDEF";
 	digits = count_digits(n);
-	remains = conversion_remains(digits, n, hex_digits); 
+	remains = conversion_remains(digits, n, hex_digits);
 	written_bytes = write(fd, "0X", 2);
 	ft_check_bytes_count(count, written_bytes);
 	written_bytes = write(fd, remains, ft_strlen(remains));
 	ft_check_bytes_count(count, written_bytes);
 	free(remains);
 }
-
 
 /* #include <limits.h>
 #include <stdio.h>

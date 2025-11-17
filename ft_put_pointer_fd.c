@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_put_pointer_fd.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/17 18:24:05 by janrodri          #+#    #+#             */
+/*   Updated: 2025/11/17 18:38:45 by janrodri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 #include "libft/libft.h"
-//AÑADIR EL HEADERR<<<<<-------------------
-static unsigned int count_digits(unsigned long int n)
+
+static unsigned int	count_digits(unsigned long int n)
 {
 	unsigned long int	temp;
 	unsigned long int	digits;
@@ -12,15 +24,17 @@ static unsigned int count_digits(unsigned long int n)
 		digits = 1;
 	else
 	{
-	while (temp != 0)
-	{
-		temp = temp / 16;
-		digits++;
-	}
+		while (temp != 0)
+		{
+			temp = temp / 16;
+			digits++;
+		}
 	}
 	return (digits);
 }
-static char *conversion_remains(unsigned long int digits, unsigned long int n, char	*hex_digits)
+
+static char	*conversion_remains(unsigned long int digits, unsigned long int n,
+		char	*hex_digits)
 {
 	unsigned long int	rest;
 	unsigned long int	temp;
@@ -43,7 +57,7 @@ static char *conversion_remains(unsigned long int digits, unsigned long int n, c
 	return (remains);
 }
 
-void ft_put_pointer_fd(void *pointer, int fd, int *count)
+void	ft_put_pointer_fd(void *pointer, int fd, int *count)
 {
 	unsigned long int	n_pointer;
 	unsigned long int	digits;
@@ -53,12 +67,12 @@ void ft_put_pointer_fd(void *pointer, int fd, int *count)
 	n_pointer = (unsigned long int) &pointer;
 	hex_digits = "0123456789abcdef";
 	digits = count_digits(n_pointer);
-	remains = conversion_remains(digits, n_pointer, hex_digits); 
+	remains = conversion_remains(digits, n_pointer, hex_digits);
 	ft_check_bytes_count(count, write(fd, "0x", 2));
 	ft_check_bytes_count(count, write(fd, remains, ft_strlen(remains)));
 	free(remains);
 }
- 
+
 /* 
 int main (void)
 {

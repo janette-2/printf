@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_format.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/17 18:24:26 by janrodri          #+#    #+#             */
+/*   Updated: 2025/11/17 18:40:43 by janrodri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libftprintf.h"
 #include "libft/libft.h"
 
-void ft_format(char type, va_list args, int *count)
+void	ft_format(char type, va_list args, int *count)
 {
 	if (type == 'c')
 		ft_putchar_fd_count(va_arg(args, int), 1, count);
@@ -16,9 +28,9 @@ void ft_format(char type, va_list args, int *count)
 	if (type == 'u')
 		ft_put_unsigned_nbr_fd(va_arg(args, unsigned int), 1, count);
 	if (type == 'x')
-		ft_put_hex_nbr_fd(va_arg(args,unsigned int), 1, count); 
+		ft_put_hex_nbr_fd(va_arg(args, unsigned int), 1, count);
 	if (type == 'X')
-		ft_put_HEX_nbr_fd(va_arg(args,unsigned int), 1, count);
+		ft_put_hex_upper_nbr_fd(va_arg(args, unsigned int), 1, count);
 	if (type == '%')
 		ft_put_percentage_fd(1, count);
 	return ;
@@ -28,8 +40,8 @@ void ft_format(char type, va_list args, int *count)
 
 PARA LA LIBRERIA:
 
-El Makefile de tu proyecto debe compilar primero la librería utilizando su Makefile, y después
-compilar el proyecto
+El Makefile de tu proyecto debe compilar primero la librería utilizando su 
+Makefile,y después compilar el proyecto
 
 CONVERSIONES----------------------------------------------
 
