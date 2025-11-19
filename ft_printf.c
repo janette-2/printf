@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:22:37 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/18 00:40:19 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/19 18:58:30 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	ft_printf(char const *format, ...)
 	va_end(args);
 	return (count);
 }
-
+/* 
 #include <stdio.h>
 #include <limits.h>
 int main(void)
@@ -93,31 +93,39 @@ int main(void)
 	ft_printf("\nADDITIONAL TEST: \n\n");
     int ret1, ret2;
 
-    // Caso básico
+	//Caso básico
+    ft_printf("\nCaso básico:\n");
     ret1 = ft_printf("ft: Hola mundo\n");
     ret2 = printf("or: Hola mundo\n");
     ft_printf("ft_printf:%d printf:%d\n", ret1, ret2);
 
-    // Caso límite
+	// Caso multiformato
+	ft_printf("\nCaso multiformato:\n");
+    ret1 = ft_printf("ft: %d %s %p %x %X %i %d %u %%\n",
+	1, "abc", &string, 856, 856, 25, 26, 27);
+    ret2 = printf("or: %d %s %p %x %X %i %d %u %%\n",
+	1, "abc", &string, 856, 856, 25, 26, 27);
+    ft_printf("ft_printf:%d printf:%d\n", ret1, ret2);
+
+    // Caso valores límite
+	ft_printf("\nCaso valores límite:\n");
     ret1 = ft_printf("ft: %d %d\n", INT_MAX, INT_MIN);
     ret2 = printf("or: %d %d\n", INT_MAX, INT_MIN);
     ft_printf("ft_printf:%d printf:%d\n", ret1, ret2);
 
     // Caso puntero NULL
+	ft_printf("\nCaso puntero NULL:\n");
     ret1 = ft_printf("ft: %p\n", NULL);
     ret2 = printf("or: %p\n", NULL);
     ft_printf("ft_printf:%d printf:%d\n", ret1, ret2);
 
-	//Caso imprimir '0'
-	ret1 = ft_printf("ft: %p\n", NULL);
-    ret2 = printf("or: %p\n", NULL);
-    ft_printf("ft_printf:%d printf:%d\n", ret1, ret2);
-
-    // Caso error (-1)
+	// Caso error (-1)
     close(1);
     ret1 = ft_printf("cerrado\n");
     ret2 = printf("cerrado\n");
-   fprintf(stderr, "ft_printf:%d printf:%d\n", ret1, ret2); //Printf but in specified 'fd', in stderr(2) in this case.
+	fprintf(stderr,"\nCaso error:\n");
+   	fprintf(stderr, "ft_printf:%d printf:%d\n", ret1, ret2); 
+   //fprintf == printf but in specified 'fd', in this case, in stderr(2).
 	
     return 0;
-}
+} */
