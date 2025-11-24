@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:13:51 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/17 18:42:27 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/24 23:34:28 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-//int	ft_printf(char const *format, ...)
+int		ft_printf(char const *format, ...);
 int		ft_find_percentage(char const *string);
 void	ft_putchar_fd_count(char c, int fd, int *count);
 void	ft_putstr_fd_count(char *s, int fd, int *count);
@@ -31,8 +31,3 @@ void	ft_format(char type, va_list args, int *count);
 void	ft_check_bytes_count(int *count, int written_bytes);
 
 #endif
-
-/* TO COMPILE THE FILES WITH THE libft USE THIS:
-
-cc -Wall -Werror -Wextra ft_find_percentage.c -Llibft -lft && ./a.out
-*/

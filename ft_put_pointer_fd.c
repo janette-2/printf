@@ -6,12 +6,11 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:24:05 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/17 23:56:06 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/24 23:51:37 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include "libft/libft.h"
 
 static long unsigned int	count_digits(long unsigned int n)
 {
@@ -20,8 +19,6 @@ static long unsigned int	count_digits(long unsigned int n)
 
 	digits = 0;
 	temp = n;
-	/* if (!n)
-		return (digits); */
 	if (n == 0)
 		digits = 1;
 	else
@@ -42,8 +39,6 @@ static char	*conversion_remains(long unsigned int digits, long unsigned int n,
 	long unsigned int	temp;
 	char				*remains;
 
-	/* if (digits == 0 || !n)
-		return (NULL); */
 	remains = malloc(digits * sizeof(char) + 1);
 	if (!remains)
 		return (NULL);
@@ -61,6 +56,16 @@ static char	*conversion_remains(long unsigned int digits, long unsigned int n,
 	return (remains);
 }
 
+static size_t	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
 void	ft_put_pointer_fd(void *pointer, int fd, int *count)
 {
 	long unsigned int	n_pointer;
@@ -70,7 +75,7 @@ void	ft_put_pointer_fd(void *pointer, int fd, int *count)
 
 	if (!pointer)
 	{
-		write(fd, "(nil)", 5);
+		ft_check_bytes_count(count, write(fd, "(nil)", 5));
 		return ;
 	}
 	n_pointer = (long unsigned int) pointer;

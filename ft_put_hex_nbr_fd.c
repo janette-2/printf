@@ -6,12 +6,11 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:24:39 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/17 19:50:14 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/24 23:49:39 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include "libft/libft.h"
 
 static unsigned int	count_digits(unsigned int n)
 {
@@ -55,6 +54,16 @@ static char	*conversion_remains(unsigned int digits, unsigned int n,
 		digits--;
 	}
 	return (remains);
+}
+
+static size_t	ft_strlen(const char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
 
 void	ft_put_hex_nbr_fd( unsigned int n, int fd, int *count)

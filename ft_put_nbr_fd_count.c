@@ -6,12 +6,11 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:25:04 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/17 18:37:25 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/24 23:46:10 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include "libft/libft.h"
 
 void	ft_putnbr_fd_count(int n, int fd, int *count)
 {
