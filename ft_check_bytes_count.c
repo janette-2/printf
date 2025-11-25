@@ -6,11 +6,11 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:24:20 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/17 18:39:29 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/25 19:29:16 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 void	ft_check_bytes_count(int *count, int written_bytes)
 {

@@ -6,11 +6,11 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 18:24:54 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/24 23:50:54 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/25 19:29:23 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static unsigned int	count_digits(unsigned int n)
 {

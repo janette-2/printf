@@ -6,11 +6,11 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 18:22:37 by janrodri          #+#    #+#             */
-/*   Updated: 2025/11/24 23:45:49 by janrodri         ###   ########.fr       */
+/*   Updated: 2025/11/25 19:29:04 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	write_and_count(char const *format, va_list args, int *count)
 {

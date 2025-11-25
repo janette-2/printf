@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+/* #include "ft_printf.h"
 #include <stdio.h>
 #include <limits.h>
 
@@ -67,10 +67,11 @@ int main(void)
     close(1);
     ret1 = ft_printf("cerrado\n");
     ret2 = printf("cerrado\n");
-   fprintf(stderr, "ft_printf:%d printf:%d\n", ret1, ret2); //Printf but in specified 'fd', in stderr(2) in this case.
+   fprintf(stderr, "ft_printf:%d printf:%d\n", ret1, ret2); 
+   //Printf but in specified 'fd', in stderr(2) in this case.
 	
     return (0);
-}
+}  */
 
 /* TO COMPILE:
 
@@ -82,5 +83,4 @@ it represents the name of the library without the extension .h (libftprintf.h))
 
 		cc -Wall -Werror -Wextra main.c -L. -lftprintf && ./a.out
 
-
-  */
+*/
